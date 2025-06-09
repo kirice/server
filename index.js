@@ -3,6 +3,8 @@ const cors = require('cors');
 const path = require('path');
 const app = express();
 
+console.log('PORT from env:', process.env.PORT);
+
 const PORT = process.env.PORT || 5000;
 
 // ✅ CORS
