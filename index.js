@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 5000;
 
 // ✅ CORS
 app.use(cors({
-  origin: ['http://localhost:5501'],
+  origin: ['https://gruesomely-prophetic-damselfly.cloudpub.ru/'],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
