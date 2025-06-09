@@ -32,5 +32,5 @@ app.get('/test', (req, res) => {
 
 // 🚀 Запуск
 app.listen(PORT, () => {
-  console.log(`✅ Сервер запущен на http://localhost:${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
