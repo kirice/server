@@ -5,12 +5,12 @@ console.log('DB_PASSWORD type:', typeof process.env.DB_PASSWORD);
 console.log('DB_PASSWORD value:', process.env.DB_PASSWORD);
 
 const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'stair_calculator',
-  password: 'Kirillser02',
-  port: 5432,
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
+
 
 // Проверка подключения
 pool.query('SELECT NOW()', (err, res) => {
