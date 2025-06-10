@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 5000;
 
 // ✅ CORS
 app.use(cors({
-  origin: ['https://gruesomely-prophetic-damselfly.cloudpub.ru'],
+  origin: ['https://frontend-production-0e8f.up.railway.app/'],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
