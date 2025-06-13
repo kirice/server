@@ -69,4 +69,21 @@ router.post('/login', async (req, res) => {
   }
 });
 
+router.get('/me', async (req, res) => {
+  const authHeader = req.headers.authorization;
+  if (!authHeader) return res.status(401).json({ error: 'Unauthorized' });
+
+  const token = authHeader.split(' ')[1];
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const user = await db.query('SELECT id, username, first_name, last_name FROM users WHERE id = $1', [decoded.userId]);
+    
+    if (!user.rows.length) return res.status(404).json({ error: 'Пользователь не найден' });
+    
+    res.json(user.rows[0]);
+  } catch (err) {
+    res.status(500).json({ error: 'Ошибка сервера' });
+  }
+});
+
 module.exports = router;
